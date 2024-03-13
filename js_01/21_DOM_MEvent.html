@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/swiper-bundle.min.css">
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(244, 240, 240);
+        }
+
+        .box {
+            position: relative;
+            width: auto;
+            height: 200px;
+            background-color: blueviolet;
+            margin: 10px auto;
+            /* 使用简写属性添加红色边框线 */
+            border: 1px solid red;
+        }
+
+        html,
+        body {
+            position: relative;
+            height: 100px;
+        }
+
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .swiper {
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            color: aqua;
+            font-size: 18px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            /* align-items: center; */
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .swiper-pagination {
+            opacity: .8;
+            height: 10px;
+            margin-top: 50px;
+            border: 1px solid rgb(21, 1, 11);
+        }
+
+        .swiper-button-next,.swiper-button-prev  {
+            background-color: transparent;
+        }
+        .swiper-pagination-bullet {
+            background: #6e1d1d;
+            opacity: .8;
+        }
+        .swiper-pagination-bullet-active {
+            background: #3b07e8;
+            opacity: .8; 
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="swiper mySwiper swiper-initialized swiper-horizontal swiper-css-mode">
+            <div class="swiper-wrapper" id="swiper-wrapper-4166635211fb6379" aria-live="polite">
+                <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 9" style="width: 220px;">
+                    Slide 1</div>
+                <div class="swiper-slide swiper-slide-next" role="group" aria-label="2 / 9" style="width: 220px;">Slide
+                    2</div>
+                <div class="swiper-slide" role="group" aria-label="3 / 9" style="width: 220px;">Slide 3</div>
+                <div class="swiper-slide" role="group" aria-label="4 / 9" style="width: 220px;">Slide 4</div>
+                <div class="swiper-slide" role="group" aria-label="5 / 9" style="width: 220px;">Slide 5</div>
+                <div class="swiper-slide" role="group" aria-label="6 / 9" style="width: 220px;">Slide 6</div>
+                <div class="swiper-slide" role="group" aria-label="7 / 9" style="width: 220px;">Slide 7</div>
+                <div class="swiper-slide" role="group" aria-label="8 / 9" style="width: 220px;">Slide 8</div>
+                <div class="swiper-slide" role="group" aria-label="9 / 9" style="width: 220px;">Slide 9</div>
+            </div>
+            <div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide"
+                aria-controls="swiper-wrapper-4166635211fb6379" aria-disabled="false"></div>
+            <div class="swiper-button-prev swiper-button-disabled" tabindex="-1" role="button"
+                aria-label="Previous slide" aria-controls="swiper-wrapper-4166635211fb6379" aria-disabled="true"></div>
+            <div class="swiper-pagination swiper-pagination-bullets swiper-pagination-horizontal"><span
+                    class="swiper-pagination-bullet swiper-pagination-bullet-active" aria-current="true"></span><span
+                    class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span
+                    class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span
+                    class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span
+                    class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span></div>
+            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+        </div>
+    </div>
+    <script src="./js/swiper-bundle.min.js"></script>
+    <h1>新增学员</h1>
+    <form class="info" autocomplete="off">
+        <!-- <input type="text" class="age" name="age"> -->
+        <p>姓名：<input type="text" name="name" required></p>
+        <p>年龄：<input type="number" name="age" required></p>
+        <p>性别：
+            <select name="gender" required>
+                <option value="">请选择</option>
+                <option value="男">男</option>
+                <option value="女">女</option>
+            </select>
+        </p>
+        <p>手机：<input type="tel" name="phone" required></p>
+        <button type="submit">提交</button>
+        <button type="reset">重置</button>
+        <button type="button" id="back">返回</button>
+    </form>
+    <script>
+        console.log("%c 👽", "color: #00bcd4; font-size: 24px; font-weight: bold;");
+//打印swiper-pagination的父节点
+        console.dir(`打印父节点+ ${document.querySelector(".swiper-pagination").parentNode.innerHTML}`);
+        //打印swiper-pagination的父节点的父节点
+        console.dir(`父节点的父节点+${document.querySelector(".swiper-pagination").parentNode.parentNode.innerHTML}`);
+        var swiper = new Swiper(".mySwiper", {
+            cssMode: true,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                // type: "progressbar",
+            },
+            autoplay: {
+                delay: 3000,
+                stopOnLastSlide: false,
+                disableOnInteraction: true,
+            },
+            mousewheel: true,
+            keyboard: true,
+        });
+
+        const div = document.querySelector('div');
+        // 触摸
+        div.addEventListener('touchstart', function (e) {
+            console.log('触摸开始');
+        })
+        // 移动
+        div.addEventListener('touchmove', function (e) {
+            console.log('触摸移动');
+        })
+        // 离开
+        div.addEventListener('touchend', function (e) {
+            console.log('触摸结束');
+        })
+
+        const form = document.querySelector('.info');
+        // 克隆节点 true为true表示深克隆，会复制节点下的所有子节点
+        const formCopy = form.cloneNode(true);
+        // 添加到body
+        document.body.appendChild(formCopy);
+    </script>
+</body>
+
+</html>
